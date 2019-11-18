@@ -6,7 +6,7 @@
 #    By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/24 09:41:56 by tlouekar          #+#    #+#              #
-#    Updated: 2019/11/05 09:21:00 by tlouekar         ###   ########.fr        #
+#    Updated: 2019/11/18 11:54:39 by tlouekar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ ft_wordlen.c \
 ft_wordcnt.c \
 ft_strsplit.c \
 ft_strtrim.c \
+ft_strcsub.c \
 
 INCS = libft.h
 
@@ -137,6 +138,7 @@ ft_wordlen.o \
 ft_wordcnt.o \
 ft_strsplit.o \
 ft_strtrim.o \
+ft_strcsub.o \
 
 EXE = a.out
 

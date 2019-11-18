@@ -1,22 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcsub.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 11:09:19 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/11/18 15:27:26 by tlouekar         ###   ########.fr       */
+/*   Created: 2019/11/18 10:31:03 by tlouekar          #+#    #+#             */
+/*   Updated: 2019/11/18 12:16:12 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 1000000
-# define FD_MAX 4192
-# include "libft/libft.h"
 
-int get_next_line(const int fd, char **line);
+#include "libft.h"
 
-#endif
+char	*ft_strcsub(const char *s)
+{
+	char	*temp;
+	int		i;
+	int		len;
+	int		nlfound;
+
+	i = 0;
+	nlfound = 0;
+	len = 0;
+	while (s[len++] != '\0')
+	{
+		if (s[len] == '\n')
+		{
+			nlfound = 1;
+			break ;
+		}
+	}
+	if (nlfound == 1)
+	{
+		if (!(temp = (char *)malloc(len * sizeof(char) + 1)))
+			return (0);
+		while (i++ < len)
+			temp[i] = s[i];
+		return (temp);
+	}
+	return ((char *)s);
+}
