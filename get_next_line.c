@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:09:08 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/11/18 15:19:18 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/11/19 12:52:46 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,19 @@ char	*youhadonejob(const char *s)
 }
 */
 
-int		youhadonejob(int fd, char *trimstr, char **strs_onejob)
+int		youhadonejob(int fd, char *trimstr, char **strs_onejob, char **line)
 {
 	int		i;
 	char	*temp;
+	int		len;
 
 	i = 0;
+	len = 0;
 	temp = ft_strnew(BUFF_SIZE);
 	while(trimstr[i] != '\n' && trimstr[i] != '\0')
-	{
-		temp[i] = trimstr[i];
-		i++;
-	}
+		len++;
+	*line = ft_strsub(trimstr, 0, len);
 	strs_onejob[fd] = ft_strjoin(strs_onejob[fd], temp);
-	if (i != BUFF_SIZE)
-	{	
-		//printf("String was shorter than BUFF");
-		strs_onejob[fd] = ft_strjoin(strs_onejob[fd], strndup(trimstr + i, BUFF_SIZE - i));
-		return (0);
-	}	
-	//printf("\nCurrent temp: %s", strs_onejob[fd]);
 	return (1);
 }
 
@@ -77,28 +70,30 @@ int get_next_line(const int fd, char **line)
 	static char	*strs[FD_MAX];	
 	size_t		bytes;
 	int			totalread;
-	int			returnvalue;
+	char		*temp;
 
-	returnvalue = -1;
 	totalread = 0;
 	if (!line)
-		return (0);
+		return (-1);
 	if (!strs[fd])
 		strs[fd] = "";
+	if (strs[fd])
+	{
+		youhadonejob(fd, buf, strs, line); // This is now bullshit but do this if you have stuff remaining in strs
+		return (1);
+	}
 	while ((bytes = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[bytes] = '\0';
-		//printf("\nCurrent buffer: %s", buf);
-		if (youhadonejob(fd, buf, strs) == 0)
-		{
-			returnvalue = 1;
-			break ;
-		}
+		if (youhadonejob(fd, buf, strs, line) != 0)
+			return (1);
+		//printf("\nCurrent line: %s", line[fd]);
 		//write(1, &buf, BUFF_SIZE);
 		totalread += bytes;
+		//Break somewhere
 	}
-	printf("\nOutput:\n\n %s\n", strs[fd]);
+	return (youhadonejob(fd, buf, strs, line));
+	//printf("\nOutput:\n\n %s\n", strs[fd]);
 	//printf("\nBytes read: %d\n", totalread);
 	//write(1, strs[fd], BUFF_SIZE);
-	return(returnvalue);
 }
