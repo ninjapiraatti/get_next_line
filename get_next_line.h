@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlouekar <tlouekar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:09:19 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/11/28 09:44:29 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/11/30 20:50:42 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 1000
-# define FD_MAX 4192
+# define BUFF_SIZE 8
+# define FD_MAX 100
 # include "libft/libft.h"
 
 int get_next_line(const int fd, char **line);
