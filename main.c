@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:48:15 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/01 11:14:39 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/12/01 12:22:19 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,47 +92,3 @@ int		main(int argc, char **argv)
 	//printf("Return value: %d, File descriptor: %d, Argc count: %d, Lines read: %d\n", returnvalue, fd, argc - 1, linecount);	
 	return (0);
 }
-
-/*
-int		main(void)
-{
-	char		*line;
-	int			ret;
-	int			fd;
-	int			lines;
-
-	lines = 0;
-	line = NULL;
-	ret = 0;
-	fd = open("test3_8buff.txt", O_RDONLY);
-	// fd = open("test1_nonsense.txt", O_RDONLY);
-	// fd = 42;
-	// fd = open("test2_hitch.txt", O_RDONLY);
-	while ((ret = get_next_line(fd, &line)) > 0)
-	{
-		ft_putstr(line);
-		ft_putchar('\n');
-		lines++;
-		ft_strdel(&line);
-	}
-	printf("\nNumber of lines counted: %d\n", lines);
-	printf("Return value from gnl: %d\n", ret);
-	printf("Simple test returns on last loop: %d\n\n", get_next_line(fd, &line));
-
-	printf("Only -1 from now on: \n");
-	ft_putchar('\n');
-	ft_putnbr(get_next_line(1, NULL));
-	ft_putnbr(get_next_line(0, NULL));
-	ft_putnbr(get_next_line(1000, NULL));
-	ft_putnbr(get_next_line(-1, NULL));
-
-	ft_putnbr(get_next_line(1000, &line));
-	ft_putnbr(get_next_line(-1, &line));
-	ft_putnbr(get_next_line(-1000, &line));
-
-	ft_putnbr(get_next_line(42, &line));
-	ft_putchar('\n');
-
-	close(fd);
-	return (0);
-}*/
