@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 19:08:19 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/10/30 19:25:14 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/11/20 15:53:54 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	ft_putstr(char const *s)
 
 	i = 0;
 	while (s[i] != '\0')
-	{
-		ft_putchar(s[i]);
 		i++;
-	}
+	write(1, s, i);
 }

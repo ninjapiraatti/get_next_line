@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlouekar <tlouekar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 16:01:22 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/11/27 22:12:48 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/11/27 12:25:16 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*p;
 
-	p = (char *)s;
 	if (!s)
 		return (NULL);
+	p = (char *)s;
 	while (*p != c)
 	{
 		if (*p == '\0')

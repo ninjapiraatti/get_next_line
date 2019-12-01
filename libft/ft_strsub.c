@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 08:46:19 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/11/05 09:08:07 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/11/30 20:36:36 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	unsigned int	i;
-	int				slen;
 	char			*newstr;
 
 	i = 0;
 	if (!s)
 		return (NULL);
-	slen = ft_strlen((char *)s);
 	if ((newstr = malloc((len) * sizeof(char) + 1)))
 	{
 		while (i < len)
