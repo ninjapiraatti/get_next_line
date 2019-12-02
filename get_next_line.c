@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:09:08 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/01 13:24:09 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/12/02 08:47:33 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		linejoiner(int fd, char **strs_joiner, char **line, int bytes)
 	char	*temp;
 
 	i = 0;
+	if (bytes < 0)
+		return (-1);
 	while ((strs_joiner[fd][i] != '\0') && (strs_joiner[fd][i] != '\n'))
 		i++;
 	if (strs_joiner[fd][i] == '\n')
@@ -31,10 +33,7 @@ int		linejoiner(int fd, char **strs_joiner, char **line, int bytes)
 	else if (strs_joiner[fd][i] == '\0')
 	{
 		if (bytes == BUFF_SIZE)
-		{
-			ft_strdel(&strs_joiner[fd]);
 			return (0);
-		}
 		*line = ft_strdup(strs_joiner[fd]);
 		ft_strdel(&strs_joiner[fd]);
 	}
@@ -44,29 +43,27 @@ int		linejoiner(int fd, char **strs_joiner, char **line, int bytes)
 int		get_next_line(const int fd, char **line)
 {
 	char		buf[BUFF_SIZE + 1];
-	static char *strs[FD_MAX];
-	int			bytes;
+	static char *sv[FD_MAX];
+	int			bt;
 	char		*temp;
 	int			i;
 
 	i = 0;
-	bytes = 0;
+	bt = 0;
 	if ((fd < 0) || (!line) || (read(fd, buf, 0) < 0))
 		return (-1);
-	while ((!(ft_strchr(strs[fd], '\n'))) && ((bytes = read(fd, buf, BUFF_SIZE)) > 0))
+	while (!(ft_strchr(sv[fd], '\n')) && ((bt = read(fd, buf, BUFF_SIZE)) > 0))
 	{
-		buf[bytes] = '\0';
-		if (strs[fd] == NULL)
-			strs[fd] = ft_strnew(1);
-		temp = ft_strjoin(strs[fd], buf);
-		free(strs[fd]);
-		strs[fd] = temp;
+		buf[bt] = '\0';
+		if (sv[fd] == NULL)
+			sv[fd] = ft_strnew(1);
+		temp = ft_strjoin(sv[fd], buf);
+		free(sv[fd]);
+		sv[fd] = temp;
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}
-	if (bytes < 0)
-		return (-1);
-	if ((bytes == 0 && strs[fd] == NULL) || strs[fd][0] == '\0')
+	if ((bt == 0 && sv[fd] == NULL) || sv[fd][0] == '\0')
 		return (0);
-	return (linejoiner(fd, strs, line, bytes));
+	return (linejoiner(fd, sv, line, bt));
 }
