@@ -6,11 +6,11 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 10:31:03 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/01 12:07:25 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/12/02 09:20:24 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 char	*ft_strcsub(const char *s)
 {

@@ -6,11 +6,11 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:21:32 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/11/05 08:39:13 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/12/02 09:20:24 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 void	ft_putstr_fd(char const *s, int fd)
 {

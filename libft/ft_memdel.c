@@ -6,11 +6,11 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 17:47:24 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/10/20 14:01:28 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/12/02 09:20:24 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 void	ft_memdel(void **ap)
 {

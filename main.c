@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:48:15 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/01 12:22:19 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/12/02 09:30:12 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "libft/libft.h"
+#include "libft/includes/libft.h"
 
 
 int		main(int argc, char **argv)
